@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Digital Clock Websitr</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="nature.jpg">
+        <h1 id="current-time">00:00:00</h1>
+        <div class="quotes">
+            <p class="date" id="current-date">dd-mm-yyyy</p>
+            <p>Today's Quotes</p>
+            <h2>"Lost Time Is Never Found Again"</h2>
+        </div>
+    </div>
+    <script>
+        let time = document.getElementById("current-time");
+        let date = document.getElementById("current-date");
+        setInterval(() => {
+            let T = new Date();
+            time.innerHTML = T.toLocaleTimeString();
+        }, 1000)
+
+        setInterval(() => {
+            let D = new Date();
+            let day = String(D.getDate()).padStart(2, '0');
+            let month = String(D.getMonth() + 1).padStart(2, '0');
+            let year = D.getFullYear();
+            date.innerHTML = `${day}-${month}-${year}`;
+        }, 1000);
+    </script>
+</body>
+
+</html>
